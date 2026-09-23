@@ -1,0 +1,695 @@
+/* ==========================================================================
+   Mamta Travels - Comprehensive Mobile & Tablet Responsive Stylesheet
+   Breakpoints: 480px (xs), 640px (sm), 768px (md), 1024px (lg)
+   ========================================================================== */
+
+/* ────────────────────────────────────────────────────────────
+   1. GLOBAL UTILITIES
+   ──────────────────────────────────────────────────────────── */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+@media (max-width: 1023px) {
+  .btn, button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn {
+    min-height: 44px;
+  }
+  .w-full {
+    width: 100% !important;
+  }
+}
+
+/* Fix long words breaking layout */
+@media (max-width: 767px) {
+  section, footer, nav, div {
+    overflow-x: hidden;
+  }
+  p, h1, h2, h3, h4, li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   2. CONTAINER
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   3. ANNOUNCEMENT BAR
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .top-announcement {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.75rem;
+    line-height: 1.4;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   4. NAVBAR
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .navbar-wrapper {
+    padding: 0.4rem 0.85rem;
+    top: 32px;
+  }
+  .navbar-wrapper.scrolled {
+    top: 0.5rem;
+  }
+  .navbar-capsule {
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+  }
+  .nav-brand-text {
+    font-size: 1.1rem;
+  }
+  .nav-brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-wrapper {
+    padding: 0.35rem 0.6rem;
+    top: 26px;
+  }
+  .nav-brand-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .mobile-nav-drawer {
+    padding: 5rem 1.5rem 2rem;
+  }
+  .mobile-nav-link {
+    font-size: 1.3rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .mobile-nav-footer {
+    gap: 0.75rem;
+  }
+  .mobile-nav-footer .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   5. HERO SECTION
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .hero-section {
+    min-height: 100svh;
+    padding-bottom: 4rem;
+    padding-top: 7rem;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .headline-cycler-wrapper {
+    min-height: 115px;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+    margin-bottom: 1.75rem;
+  }
+  .hero-floating-badges {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero-live-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-bottom: 3rem;
+    padding-top: 6.5rem;
+  }
+  .headline-cycler-wrapper {
+    min-height: 90px;
+  }
+  .hero-bonus-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.9rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   6. SECTION HEADERS
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+  .section-header h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   7. ROUTES SECTION
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .routes-section {
+    padding: 3.5rem 0;
+  }
+  #leaflet-route-map {
+    height: 370px;
+  }
+  .map-floating-overlay {
+    max-width: 240px;
+    padding: 0.65rem 0.9rem;
+    left: 10px;
+    top: 10px;
+  }
+  .map-floating-overlay h4 {
+    font-size: 0.875rem;
+  }
+  .map-floating-overlay p {
+    font-size: 0.7rem;
+  }
+  .view-mode-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .shift-switcher {
+    width: 100%;
+  }
+  .shift-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 0.25rem;
+    font-size: 0.8125rem;
+  }
+  #leaflet-route-map {
+    height: 280px;
+  }
+  .map-floating-overlay {
+    display: none;
+  }
+  .routes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .route-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .route-card-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .route-specs {
+    gap: 0.4rem;
+    padding: 0.75rem 0.65rem;
+  }
+  .spec-val {
+    font-size: 0.875rem;
+  }
+  .spec-label {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #leaflet-route-map {
+    height: 240px;
+  }
+  .view-mode-tabs {
+    width: 100%;
+  }
+  .view-btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.8125rem;
+    padding: 0.5rem 0.5rem;
+  }
+  .route-search-bar {
+    padding: 0.875rem 1rem;
+  }
+}
+
+/* Leaflet touch controls */
+@media (max-width: 767px) {
+  .leaflet-control-zoom a {
+    width: 34px !important;
+    height: 34px !important;
+    line-height: 34px !important;
+    font-size: 18px !important;
+  }
+  .leaflet-popup-content-wrapper {
+    font-size: 0.8rem !important;
+    max-width: 190px !important;
+  }
+  .interactive-map-panel {
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   8. OFFERINGS / MAMTA PASS
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .offerings-section {
+    padding: 3.5rem 0;
+  }
+  .offerings-grid {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .offerings-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .offering-card {
+    padding: 1.75rem 1.5rem;
+  }
+  .offering-title {
+    font-size: 1.25rem;
+  }
+  .offering-desc {
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .bonus-banner-strip {
+    padding: 1.25rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .bonus-text {
+    font-size: 1.05rem;
+  }
+  .bonus-banner-strip .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   9. HOW IT WORKS (Phone Mockup)
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .how-it-works-section {
+    padding: 3.5rem 0;
+  }
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .phone-mockup-wrapper {
+    order: 1;
+  }
+  .steps-list {
+    order: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .phone-mockup-frame {
+    width: 240px !important;
+    height: 488px !important;
+    border-radius: 38px !important;
+    border-width: 9px !important;
+  }
+  .step-card {
+    padding: 1.25rem;
+  }
+  .step-title {
+    font-size: 1.05rem;
+  }
+  .step-content {
+    font-size: 0.875rem;
+    margin-left: 2.9rem;
+  }
+  .step-card.active .step-content {
+    max-height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .phone-mockup-frame {
+    width: 210px !important;
+    height: 428px !important;
+    border-radius: 34px !important;
+    border-width: 8px !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   10. EXPERIENCE SECTION
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .experience-section {
+    padding: 3.5rem 0;
+  }
+  .experience-grid {
+    margin-top: 2.5rem;
+    gap: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .experience-caption {
+    padding: 1.25rem 1.25rem;
+    margin-top: -2.5rem;
+  }
+  .experience-card-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   11. CORPORATE SECTION
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .corporate-section {
+    padding: 3.5rem 0;
+  }
+  .corporate-container {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .corporate-lead {
+    font-size: 1rem;
+  }
+  .benefit-item {
+    font-size: 0.9375rem;
+  }
+  .savings-calc-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .calc-title {
+    font-size: 1.15rem;
+  }
+  .slider-val-badge {
+    font-size: 1.1rem;
+  }
+  .calc-results-box {
+    padding: 1.25rem;
+  }
+  .result-row {
+    font-size: 0.875rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .result-row.highlight-row .result-val {
+    font-size: 1.35rem;
+  }
+  .corporate-section .btn,
+  .corporate-info .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  /* range slider bigger touch target */
+  .calc-range-slider {
+    height: 10px;
+  }
+  .calc-range-slider::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   12. LUXE SECTION
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .luxe-section {
+    padding: 3.5rem 0;
+  }
+}
+
+@media (max-width: 899px) {
+  .luxe-fleet-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem;
+  }
+  .luxe-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .luxe-fleet-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .luxe-title {
+    font-size: 1.65rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   13. TESTIMONIALS
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .testimonials-section {
+    padding: 3.5rem 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+  .testimonial-card {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   14. FOOTER / APP DOWNLOAD CTA
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .download-cta-banner {
+    padding: 2rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .download-store-badges {
+    flex-direction: column;
+    width: 100%;
+  }
+  .store-badge-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+  }
+  .site-footer {
+    padding: 3rem 0 2rem;
+  }
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .social-links-row {
+    justify-content: center;
+  }
+  .footer-desc {
+    max-width: 100%;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   15. MODALS — Slide-up sheet style on mobile
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal-card {
+    max-width: 100%;
+    width: 100%;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-height: 92svh;
+    transform: translateY(100px) scale(1);
+  }
+  .modal-overlay.active .modal-card {
+    transform: translateY(0) scale(1);
+  }
+  .modal-header {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+  .modal-body {
+    padding: 1.25rem 1.25rem;
+  }
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  .seat-legend {
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .modal-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  /* Handle for visual affordance */
+  .modal-card::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: #cbd5e1;
+    border-radius: 2px;
+    margin: 0.75rem auto 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-card {
+    max-height: 95svh;
+  }
+  .seat-legend {
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   16. TOAST NOTIFICATIONS
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .toast-notice {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    font-size: 0.875rem;
+    padding: 0.875rem 1.25rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   17. TABLET-SPECIFIC (768–1023px) GRID OVERRIDES
+   ──────────────────────────────────────────────────────────── */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .offerings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .routes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem;
+  }
+  .corporate-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   18. REDUCE MOTION ON MOBILE (PERFORMANCE)
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  /* Reduce heavy backdrop blur */
+  .hero-live-badge,
+  .hero-bonus-tag,
+  .map-floating-overlay,
+  .route-live-indicator,
+  .route-seat-count {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  /* Disable hover transforms (touch devices don't hover) */
+  .route-card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(var(--color-primary-rgb), 0.05);
+  }
+  .experience-card:hover .experience-img {
+    transform: none;
+  }
+  .testimonial-card:hover {
+    transform: none;
+  }
+  .luxe-card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

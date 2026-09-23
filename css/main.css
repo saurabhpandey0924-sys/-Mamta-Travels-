@@ -1,0 +1,295 @@
+/* ==========================================================================
+   Mamta Travels - Core Design System & Tokens
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand Palette - Mamta Travels Imperial Sapphire & Aurora Cyan (Trust & Impression) */
+  --color-primary: #0a192f;        /* Deep Obsidian Sapphire - High Trust Corporate */
+  --color-primary-dark: #040c17;   /* Midnight Deep Void */
+  --color-primary-light: #152d50;  /* Executive Royal Slate */
+  --color-primary-rgb: 10, 25, 47;
+  
+  --color-secondary: #2563eb;      /* Electric Royal Azure */
+  --color-secondary-hover: #1d4ed8;
+
+  --color-accent: #00c2cb;         /* Luminous Electric Cyan - High-Tech, Crisp, Impressive */
+  --color-accent-hover: #00a4ad;
+  --color-accent-light: #67e8f9;   /* Icy Cyan Glow */
+  --color-accent-rgb: 0, 194, 203;
+
+  --color-gold: #f59e0b;           /* Warm Sovereign Gold for Mamta Cash & Star Ratings */
+  --color-gold-light: #fde68a;
+  --color-emerald: #10b981;        /* Punctuality & Live Tracking */
+
+  /* Surfaces & Neutrals */
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f0fdfa;            /* Clean icy subtle surface */
+  --text-main: #0a192f;
+  --text-muted: #52647c;
+  --text-light: #8da2bb;
+  --border-light: rgba(10, 25, 47, 0.08);
+  --border-card: rgba(10, 25, 47, 0.12);
+
+  /* LUXE Dark Palette */
+  --luxe-bg: #090b10;
+  --luxe-card: #131722;
+  --luxe-gold: #dfb876;
+  --luxe-gold-dark: #a98547;
+  --luxe-text: #e2e8f0;
+  --luxe-muted: #94a3b8;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(0, 194, 203, 0.25);
+  --glass-shadow: 0 12px 36px rgba(10, 25, 47, 0.14), 0 2px 8px rgba(0, 194, 203, 0.08);
+
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout */
+  --container-max: 1280px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Typography Utilities */
+.heading-display {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 1rem + 3.8vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.heading-1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 1rem + 2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.heading-2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 0.8rem + 1.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.heading-3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 0.7rem + 0.9vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.text-gold {
+  color: var(--color-accent);
+}
+
+.text-gold-light {
+  color: var(--color-accent-light);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Button Component Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(0, 194, 203, 0.25);
+  box-shadow: 0 4px 14px rgba(10, 25, 47, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(0, 194, 203, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #00c2cb 0%, #0284c7 100%);
+  color: #04101e;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(0, 194, 203, 0.35);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #38bdf8 0%, #00c2cb 100%);
+  box-shadow: 0 8px 24px rgba(0, 194, 203, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-white {
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border: 1px solid rgba(10, 25, 47, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.btn-white:hover {
+  background-color: #f0fdfa;
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(0, 194, 203, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: rgba(0, 194, 203, 0.15);
+  border-color: var(--color-accent);
+  color: var(--color-accent-light);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.125rem;
+  font-size: 0.8125rem;
+}
+
+.btn-lg {
+  padding: 1.125rem 2.25rem;
+  font-size: 1.0625rem;
+}
+
+/* Badges */
+.badge-gold {
+  background: linear-gradient(135deg, #00c2cb 0%, #0284c7 100%);
+  color: #04101e;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 6px rgba(0, 194, 203, 0.3);
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(0, 194, 203, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(0, 194, 203, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

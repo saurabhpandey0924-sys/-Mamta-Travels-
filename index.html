@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a192f">
+  <title>Mamta Travels: App-based AC buses for office commute & corporate mobility</title>
+  <meta name="description" content="Mamta Travels is an app-based daily commute service providing stress-free office rides in premium executive AC buses currently operating in Mumbai, Thane, Navi Mumbai & Hyderabad.">
+  
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230a192f'/><text x='50%' y='68%' font-size='56' font-weight='800' fill='%2300c2cb' text-anchor='middle' font-family='sans-serif'>M</text></svg>">
+
+  <!-- Leaflet Interactive Maps CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Core & Component Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/hero.css">
+  <link rel="stylesheet" href="./css/routes.css">
+  <link rel="stylesheet" href="./css/mockups.css">
+  <link rel="stylesheet" href="./css/experience.css">
+  <link rel="stylesheet" href="./css/corporate.css">
+  <link rel="stylesheet" href="./css/luxe.css">
+  <link rel="stylesheet" href="./css/modals.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Hotline Banner -->
+  <div class="top-announcement" id="top-announcement-bar">
+    <span>Want to see Mamta Travels in action? <a href="javascript:void(0)" onclick="openDemoModal()">Request a corporate demo</a> or Call us at <a href="tel:022-48900198" class="phone-badge">022-48900198</a></span>
+  </div>
+
+  <!-- Floating Liquid Glass Navbar -->
+  <div class="navbar-wrapper" id="navbar-wrapper">
+    <header class="navbar-capsule">
+      <!-- Brand Logo -->
+      <a href="#" class="nav-brand">
+        <div class="nav-brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 6v6"/>
+            <path d="M15 6v6"/>
+            <path d="M2 12h19.6"/>
+            <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.6 19 6 17.7 6H6.3C5 6 3.9 6.6 3.6 7.8L2.2 12.8c-.1.4-.2.8-.2 1.2 0 .4.1.8.2 1.2.3 1.1.8 2.8.8 2.8h3"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="17" cy="18" r="2"/>
+          </svg>
+        </div>
+        <div class="nav-brand-text">
+          Mamta<span>Travels</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-menu">
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#routes" class="nav-link">Available Routes</a>
+        <a href="#offerings" class="nav-link">Rentals</a>
+        <a href="#luxe" class="nav-link">LUXE</a>
+        <a href="#corporate" class="nav-link">Corporate</a>
+        <a href="#corporate" class="nav-link has-badge">
+          Corporate Pass
+          <span class="badge-new">New</span>
+        </a>
+        <a href="#footer" class="nav-link">Ads with Mamta</a>
+        <a href="javascript:void(0)" onclick="openDemoModal()" class="nav-link">Careers</a>
+        <a href="#routes" class="nav-cta-btn">Book Now</a>
+      </nav>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button class="nav-hamburger" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-links">
+      <a href="#how-it-works" class="mobile-nav-link">
+        <span class="mobile-nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </span>
+        How It Works
+      </a>
+      <a href="#routes" class="mobile-nav-link">
+        <span class="mobile-nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </span>
+        Available Routes
+      </a>
+      <a href="#offerings" class="mobile-nav-link">
+        <span class="mobile-nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </span>
+        Commute Passes
+      </a>
+      <a href="#luxe" class="mobile-nav-link">
+        <span class="mobile-nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+        </span>
+        Mamta LUXE (Premium Cabs)
+      </a>
+      <a href="#corporate" class="mobile-nav-link">
+        <span class="mobile-nav-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        Corporate Pass
+      </a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <button class="btn btn-gold btn-lg w-full" onclick="openDownloadModal()">Download The App</button>
+      <p style="color: rgba(255,255,255,0.7); text-align: center; font-size: 0.85rem;">
+        Get up to <strong style="color: var(--color-accent-light);">₹200 Mamta Cash</strong> on signup
+      </p>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <!-- Photorealistic Bus & Highway Background with Ambient Canvas -->
+    <div class="hero-bg-container">
+      <img src="./assets/images/hero_bus.jpg" alt="Mamta Travels Executive Commuter Bus on Coastal Bridge" class="hero-bg-image">
+      <canvas id="hero-canvas" class="hero-bg-canvas"></canvas>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <!-- Live Status Badges -->
+      <div class="hero-floating-badges">
+        <span class="hero-live-badge">
+          <span class="live-pulse-dot"></span>
+          <span>1,200+ AC Coaches Active</span>
+        </span>
+        <span class="hero-live-badge" style="border-color: rgba(255,255,255,0.3);">
+          <span>Atal Setu & Sea Link Expressways</span>
+        </span>
+      </div>
+
+      <!-- Rotating Dynamic Headlines -->
+      <div class="headline-cycler-wrapper">
+        <div class="headline-item active">
+          <h1 class="heading-display hero-title">
+            We make your ride to work <span class="highlight">stress-free</span>
+          </h1>
+        </div>
+        <div class="headline-item">
+          <h1 class="heading-display hero-title">
+            <span class="highlight">Comfort of your car</span>, without the driving
+          </h1>
+        </div>
+        <div class="headline-item">
+          <h1 class="heading-display hero-title">
+            Doorstep to office desk, <span class="highlight">direct</span>
+          </h1>
+        </div>
+        <div class="headline-item">
+          <h1 class="heading-display hero-title">
+            Express rides. As <span class="highlight">fast as a car</span>
+          </h1>
+        </div>
+        <div class="headline-item">
+          <h1 class="heading-display hero-title">
+            <span class="highlight">On-time</span> buses, every 20 minutes
+          </h1>
+        </div>
+        <div class="headline-item">
+          <h1 class="heading-display hero-title">
+            <span class="highlight">Flexible plans</span> for all work schedules
+          </h1>
+        </div>
+      </div>
+
+      <p class="hero-subtitle">
+        Comfortable Home-to-Office executive AC bus rides operating across Mumbai, Thane, Navi Mumbai & Hyderabad.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#routes" class="btn btn-white btn-lg">Find my bus</a>
+        <button class="btn btn-gold btn-lg" onclick="openDownloadModal()">
+          <span>Download the app</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </button>
+      </div>
+
+      <div class="hero-bonus-tag">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd66b" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Up to <strong>₹200 Mamta Cash</strong> wallet bonus on first signup!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTE FINDER & INTERACTIVE LEAFLET MAP SECTION -->
+  <section class="routes-section" id="routes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Express Network</span>
+        <h2 class="heading-1" style="color: var(--color-primary);">Find Your Office Route</h2>
+        <p class="text-muted" style="margin-top: 0.5rem; font-size: 1.1rem;">
+          Direct pick-ups near your home, non-stop expressway transit, and drops right outside your tech park or office tower.
+        </p>
+      </div>
+
+      <!-- Route Search Bar -->
+      <div class="route-search-bar">
+        <div class="search-input-group">
+          <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+          <input type="text" id="search-pickup" class="search-input-field" placeholder="Enter Pickup (e.g. Kharghar, Borivali, Thane)">
+        </div>
+
+        <button class="swap-stops-btn" id="btn-swap-stops" title="Swap origin and destination">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"/></svg>
+        </button>
+
+        <div class="search-input-group">
+          <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input type="text" id="search-dropoff" class="search-input-field" placeholder="Enter Office Hub (e.g. Worli, BKC, Powai)">
+        </div>
+
+        <!-- Shift Tab Toggle -->
+        <div class="shift-switcher">
+          <button class="shift-tab active" data-shift="morning">Morning Shift</button>
+          <button class="shift-tab" data-shift="evening">Evening Return</button>
+        </div>
+
+        <button class="btn btn-primary" onclick="document.getElementById('routes-list-container').scrollIntoView({behavior: 'smooth'})">
+          View Buses
+        </button>
+      </div>
+
+      <!-- View Mode Tabs (Grid vs Live Map) -->
+      <div class="view-mode-bar">
+        <div class="view-mode-tabs">
+          <button class="view-btn active" id="btn-view-map">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+            <span>Live Interactive Map & Polylines</span>
+          </button>
+          <button class="view-btn" id="btn-view-grid">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Grid Cards Only</span>
+          </button>
+        </div>
+        <div style="font-size: 0.85rem; font-weight: 700; color: #16a34a; display: flex; align-items: center; gap: 0.4rem;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #16a34a;"></span>
+          GPS Real-Time Tracking Active
+        </div>
+      </div>
+
+      <!-- Interactive Leaflet Map Showcase Panel -->
+      <div class="interactive-map-panel" id="interactive-map-panel">
+        <div class="map-floating-overlay">
+          <span class="badge-gold">Live Polyline Tracker</span>
+          <h4 id="map-route-title">Navi Mumbai - Worli Express</h4>
+          <p id="map-route-sub">Kharghar Station ➔ Worli Naka (Every 20 mins)</p>
+        </div>
+        <div id="leaflet-route-map"></div>
+      </div>
+
+      <!-- Route Cards Dynamic List -->
+      <div class="routes-grid" id="routes-list-container">
+        <!-- Injected dynamically via route-finder.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUTE OFFERINGS & PLANS -->
+  <section class="offerings-section" id="offerings">
+    <div class="container">
+      <div style="max-width: 680px;">
+        <span class="section-eyebrow" style="color: var(--color-accent-light);">Flexible Pricing</span>
+        <h2 class="heading-1">Designed for every work week schedule</h2>
+        <p style="color: rgba(255,255,255,0.85); font-size: 1.15rem; margin-top: 0.75rem;">
+          Whether you commute daily, 3 days a week, or once in a while — we have transparent, guaranteed-seat plans.
+        </p>
+      </div>
+
+      <div class="offerings-grid">
+        <!-- Offering 1: Single Ride -->
+        <div class="offering-card">
+          <div>
+            <div class="offering-header">
+              <span class="offering-badge">Single</span>
+              <h3 class="offering-title">Single Ride</h3>
+            </div>
+            <p class="offering-desc">
+              Book one-off rides whenever needed. Guaranteed AC seat with zero standing, <span class="highlight">starting at ₹230/ride</span>.
+            </p>
+          </div>
+          <button class="btn btn-white w-full" onclick="document.getElementById('routes').scrollIntoView({behavior: 'smooth'})">Book a Seat</button>
+        </div>
+
+        <!-- Offering 2: Ride Packs -->
+        <div class="offering-card" style="border-color: rgba(0, 194, 203, 0.45); background: rgba(0, 194, 203, 0.08);">
+          <div>
+            <div class="offering-header">
+              <span class="offering-badge">Popular</span>
+              <h3 class="offering-title">Ride Packs</h3>
+            </div>
+            <p class="offering-desc">
+              Pre-bundle 15 rides or Unlimited monthly commute passes with priority booking window, <span class="highlight">saving up to ₹3,500/month</span>.
+            </p>
+          </div>
+          <button class="btn btn-gold w-full" onclick="openDownloadModal()">Get Ride Pack</button>
+        </div>
+
+        <!-- Offering 3: Flexi Pass -->
+        <div class="offering-card">
+          <div>
+            <div class="offering-header">
+              <span class="offering-badge">Flexible</span>
+              <h3 class="offering-title">Flexi Pass</h3>
+            </div>
+            <p class="offering-desc">
+              Weekly and monthly smart passes for hybrid work routines. Free instant cancellations, <span class="highlight">starting at ₹129/ride</span>.
+            </p>
+          </div>
+          <button class="btn btn-white w-full" onclick="openDownloadModal()">Explore Flexi Pass</button>
+        </div>
+      </div>
+
+      <!-- Bonus Callout Strip -->
+      <div class="bonus-banner-strip">
+        <div class="bonus-text">
+          Signup on the Mamta Travels app today & get <span>₹200 Mamta Cash</span> credited immediately!
+        </div>
+        <button class="btn btn-gold" onclick="openDownloadModal()">Claim ₹200 Bonus</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION (Interactive Phone Mockup Slider) -->
+  <section class="how-it-works-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 640px; margin: 0 auto 4rem;">
+        <span class="section-eyebrow">Frictionless Experience</span>
+        <h2 class="heading-1" style="color: var(--color-primary);">How Mamta Travels Works</h2>
+        <p class="text-muted" style="margin-top: 0.5rem; font-size: 1.1rem;">
+          It’s simple to take a ride. Just search, pick your seat, and step into total comfort.
+        </p>
+      </div>
+
+      <div class="how-it-works-grid">
+        <!-- Left Column: Realistic Smartphone Mockup -->
+        <div class="phone-mockup-wrapper">
+          <div class="phone-mockup-frame">
+            <div class="phone-notch">
+              <div class="notch-camera"></div>
+            </div>
+
+            <div class="phone-screen">
+              <!-- Screen 1: Select Your Ride -->
+              <div class="app-screen active" data-screen-index="0">
+                <div class="screen-header-bar">
+                  <span class="screen-app-title">Mamta Travels</span>
+                  <span class="badge-gold">Confirmed</span>
+                </div>
+                <div class="sim-search-box">
+                  <div class="sim-route-chip">
+                    <span style="color: var(--color-accent); font-size: 1.1rem;">●</span>
+                    <span>Kharghar (Utsav Chowk)</span>
+                  </div>
+                  <div class="sim-route-chip" style="margin-bottom: 0;">
+                    <span style="color: var(--color-primary); font-size: 1.1rem;">■</span>
+                    <span>Worli (Century Mills)</span>
+                  </div>
+                </div>
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">Select Reserved Seat</div>
+                <div class="sim-seat-grid-mini">
+                  <div class="sim-seat-dot">1A</div>
+                  <div class="sim-seat-dot selected">1B</div>
+                  <div class="sim-seat-dot">1C</div>
+                  <div class="sim-seat-dot">1D</div>
+                  <div class="sim-seat-dot">2A</div>
+                  <div class="sim-seat-dot">2B</div>
+                  <div class="sim-seat-dot">2C</div>
+                  <div class="sim-seat-dot">2D</div>
+                  <div class="sim-seat-dot">3A</div>
+                  <div class="sim-seat-dot">3B</div>
+                  <div class="sim-seat-dot">3C</div>
+                  <div class="sim-seat-dot">3D</div>
+                </div>
+                <div style="margin-top: auto; background: var(--color-primary); color: #fff; padding: 0.75rem; border-radius: 12px; text-align: center; font-weight: 700; font-size: 0.85rem;">
+                  Confirm Seat 1B • ₹159
+                </div>
+              </div>
+
+              <!-- Screen 2: Track Your Bus -->
+              <div class="app-screen" data-screen-index="1" style="padding: 0; overflow: hidden; background: #020c1b;">
+                <img src="./assets/images/app_screen_preview.jpg" alt="Mamta Travels Live Bus Tracking App on Mobile" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;">
+              </div>
+
+              <!-- Screen 3: Reschedule Easily -->
+              <div class="app-screen" data-screen-index="2">
+                <div class="screen-header-bar">
+                  <span class="screen-app-title">Change of Plans?</span>
+                </div>
+                <div style="background: #fff; padding: 1rem; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 1rem;">
+                  <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">Today's Booking</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">08:15 AM • Seat 3A</div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                  <button style="background: var(--bg-subtle); padding: 0.85rem; border-radius: 12px; font-weight: 700; font-size: 0.85rem; text-align: left; color: var(--color-primary);">
+                    Reschedule to 08:35 AM (Free)
+                  </button>
+                  <button style="background: var(--bg-subtle); padding: 0.85rem; border-radius: 12px; font-weight: 700; font-size: 0.85rem; text-align: left; color: var(--color-primary);">
+                    Reschedule to 09:00 AM (Free)
+                  </button>
+                  <button style="background: rgba(220, 38, 38, 0.08); color: #dc2626; padding: 0.85rem; border-radius: 12px; font-weight: 700; font-size: 0.85rem; text-align: left;">
+                    Cancel Ride (100% Refund)
+                  </button>
+                </div>
+              </div>
+
+              <!-- Screen 4: Book Flexi Pass -->
+              <div class="app-screen" data-screen-index="3">
+                <div class="screen-header-bar">
+                  <span class="screen-app-title">Flexi Pass</span>
+                  <span class="badge-gold">Save 34%</span>
+                </div>
+                <div style="background: linear-gradient(135deg, var(--color-primary), #00365c); color: #fff; padding: 1.25rem; border-radius: 16px; margin-bottom: 1rem;">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-accent);">Mamta Commuter Card</div>
+                  <div style="font-size: 1.25rem; font-weight: 800; margin: 0.5rem 0;">15 Rides Value Pack</div>
+                  <div style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">Valid for 45 Days • Any Morning Shift</div>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+                  ✓ Unlimited free rescheduling<br>
+                  ✓ Dedicated priority seat booking<br>
+                  ✓ Zero cancellation fee
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Step Accordion Cards -->
+        <div class="steps-list">
+          <!-- Step 1 -->
+          <div class="step-card active" data-step-index="0">
+            <div class="step-progress-bar"></div>
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <h3 class="step-title">Select your ride</h3>
+            </div>
+            <div class="step-content">
+              Book your ride in seconds by selecting your pickup, destination dropoff, and preferred reserved window or aisle seat.
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card" data-step-index="1">
+            <div class="step-progress-bar"></div>
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <h3 class="step-title">Track your bus</h3>
+            </div>
+            <div class="step-content">
+              Live track your bus GPS location on the map, monitor arrival stop ETAs in real-time, and access on-board safety features.
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card" data-step-index="2">
+            <div class="step-progress-bar"></div>
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <h3 class="step-title">Reschedule easily</h3>
+            </div>
+            <div class="step-content">
+              Change of meeting or shift timings? Simply swap to the next bus with 1-tap, or cancel instantly with zero penalty.
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card" data-step-index="3">
+            <div class="step-progress-bar"></div>
+            <div class="step-header">
+              <div class="step-number">4</div>
+              <h3 class="step-title">Book Flexi Pass</h3>
+            </div>
+            <div class="step-content">
+              Enjoy up to 34% commute savings, flexible weekly/monthly credit packs, and priority guaranteed seat reservations.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MAMTA TRAVELS EXPERIENCE (Featuring Real Authentic Images) -->
+  <section class="experience-section">
+    <div class="container">
+      <div class="section-header" style="max-width: 640px;">
+        <span class="section-eyebrow">Executive Standard</span>
+        <h2 class="heading-1" style="color: var(--color-primary);">The Mamta Travels Experience</h2>
+        <p class="text-muted" style="margin-top: 0.5rem; font-size: 1.15rem;">
+          Sit back, relax. We’ll drive you to work and back. Reclaim your commute hours every single day.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <!-- Card 1: Best-in-class Buses -->
+        <div class="experience-card">
+          <div class="experience-img-container">
+            <img src="./assets/images/hero_bus.jpg" alt="Mamta Travels Executive Bus Fleet" class="experience-img">
+          </div>
+          <div class="experience-caption">
+            <h3 class="experience-card-title">Best-in-class buses</h3>
+            <p class="experience-card-desc">
+              Pre-book your seat on our clean, spacious, executive AC coaches. Track live as it pulls up to your stop.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Luxury Interior Comfort -->
+        <div class="experience-card">
+          <div class="experience-img-container">
+            <img src="./assets/images/bus_interior.jpg" alt="Mamta Travels Luxury Interior" class="experience-img">
+          </div>
+          <div class="experience-caption">
+            <h3 class="experience-card-title">Home to office, direct</h3>
+            <p class="experience-card-desc">
+              Reach your workplace directly from nearby residential stops (&lt;3 min walk) without switching trains, autos, or metro lines.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Peaceful Commute -->
+        <div class="experience-card">
+          <div class="experience-img-container">
+            <img src="./assets/images/commuter_peace.jpg" alt="Executive Relaxing Peacefully in Bus" class="experience-img">
+          </div>
+          <div class="experience-caption">
+            <h3 class="experience-card-title">Time to yourself everyday</h3>
+            <p class="experience-card-desc">
+              Cut off completely from chaotic traffic. Read your favorite book, catch up on sleep, or stream shows with quiet AC comfort.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: As Fast as a Car -->
+        <div class="experience-card">
+          <div class="experience-img-container">
+            <img src="./assets/images/bus_expressway.jpg" alt="Mamta Travels Volvo Bus on Sea Link Expressway" class="experience-img">
+          </div>
+          <div class="experience-caption">
+            <h3 class="experience-card-title">As fast as a car. Always on time.</h3>
+            <p class="experience-card-desc">
+              Express non-stop corridors utilizing the Bandra-Worli Sea Link and Atal Setu (MTHL) with limited halts and 95% punctual arrivals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAMTA TRAVELS CORPORATE PASS (B2B Mobility Showcase) -->
+  <section class="corporate-section" id="corporate">
+    <div class="container corporate-container">
+      <div class="corporate-info">
+        <span class="badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          B2B Employee Mobility
+        </span>
+        <h2 class="heading-1 corporate-title">Employee Commute by the Seat</h2>
+        <p class="corporate-lead">
+          Why lease expensive dedicated buses or reimburse individual Uber cabs? Give your team reserved seats on India's largest network of 1,200+ AC express buses across 150+ routes.
+        </p>
+
+        <div class="corporate-benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-check">✓</div>
+            <span>Pay by the seat — eliminate 100% empty bus deadhead waste</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check">✓</div>
+            <span>Centralized corporate billing dashboard & tax compliant GST invoicing</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check">✓</div>
+            <span>Live safety tracking, driver breathalyzer tests, and 24x7 SOS emergency desk</span>
+          </div>
+        </div>
+
+        <button class="btn btn-gold btn-lg" onclick="openDemoModal()">
+          Request Corporate Demo
+        </button>
+      </div>
+
+      <!-- Interactive Commuter ROI Savings Calculator -->
+      <div class="savings-calc-card">
+        <div class="calc-header">
+          <h3 class="calc-title">Monthly Transport Savings Calculator</h3>
+          <p class="calc-sub">Slide to calculate potential corporate commute cost reduction</p>
+        </div>
+
+        <div class="calc-slider-group">
+          <div class="slider-label-row">
+            <span class="slider-label">Number of Daily Commuting Employees</span>
+            <span class="slider-val-badge" id="calc-employees-count">50 Commuters</span>
+          </div>
+          <input type="range" id="calc-employees-slider" class="calc-range-slider" min="10" max="500" step="5" value="50">
+        </div>
+
+        <div class="calc-results-box">
+          <div class="result-row">
+            <span style="color: rgba(255,255,255,0.7);">Private Cabs / Dedicated Bus Spend:</span>
+            <span style="font-weight: 700; color: #ffffff;" id="calc-traditional-cost">₹4,25,000 / mo</span>
+          </div>
+          <div class="result-row">
+            <span style="color: rgba(255,255,255,0.7);">Mamta Travels Corporate Pass:</span>
+            <span style="font-weight: 700; color: var(--color-accent-light);" id="calc-mamta-cost">₹2,75,000 / mo</span>
+          </div>
+          <div class="result-row highlight-row">
+            <span style="font-weight: 800; font-size: 1.1rem; color: #ffffff;">Your Estimated Net Monthly Savings:</span>
+            <span class="result-val" id="calc-net-savings">₹1,50,000 / mo</span>
+          </div>
+        </div>
+
+        <button class="btn btn-white w-full" onclick="openDemoModal()">
+          Get Custom Corporate Route Plan
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAMTA LUXE (Luxury Chauffeured Cabs with Chauffeur Photo) -->
+  <section class="luxe-section" id="luxe">
+    <div class="container">
+      <div class="luxe-header">
+        <span class="luxe-badge">Mamta LUXE</span>
+        <h2 class="luxe-title">Elevate Your <span>Cab Experience</span></h2>
+        <p class="luxe-sub">
+          Premium chauffeured taxi and cab services in Mumbai. Fixed pricing starting from ₹500/hr, zero surge, and certified professional chauffeurs.
+        </p>
+      </div>
+
+      <!-- Real Chauffeur & Innova Showcase Banner -->
+      <div style="border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 3.5rem; position: relative; max-height: 420px; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+        <img src="./assets/images/luxe_chauffeur.jpg" alt="Mamta LUXE Chauffeur with Luxury Innova Crysta" style="width: 100%; height: 100%; object-fit: cover; object-position: center 55%;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0.2) 60%, rgba(20,20,20,0.85) 100%); display: flex; align-items: flex-end; padding: 2.5rem;">
+          <div style="background: rgba(20,20,20,0.8); backdrop-filter: blur(14px); padding: 1.25rem 1.75rem; border-radius: var(--radius-lg); border: 1px solid rgba(207,171,119,0.4); max-width: 440px;">
+            <span style="color: var(--luxe-gold); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Executive Chauffeur Service</span>
+            <h3 style="color: #fff; font-size: 1.25rem; font-weight: 800; margin: 0.25rem 0 0.5rem;">Toyota Innova Crysta & Hybrid SUVs</h3>
+            <p style="color: var(--luxe-muted); font-size: 0.85rem; line-height: 1.5;">Door-to-door luxury airport transfers, outstation business trips, and hourly rentals with zero surge pricing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="luxe-fleet-grid">
+        <!-- LUXE Car 1: Innova Crysta -->
+        <div class="luxe-card">
+          <span class="luxe-card-badge">Most Popular</span>
+          <div class="luxe-card-visual">
+            <img src="./assets/images/innova_crysta.jpg" alt="Toyota Innova Crysta Luxury MPV" class="luxe-car-photo">
+          </div>
+          <div class="luxe-card-content">
+            <h3 class="luxe-car-name">Toyota Innova Crysta</h3>
+            <span class="luxe-car-category">Executive 7-Seater MPV</span>
+            <div class="luxe-specs-row">
+              <span>7 Seats</span>
+              <span>•</span>
+              <span>Dual AC</span>
+              <span>•</span>
+              <span>Luggage: 4 Bags</span>
+            </div>
+            <div class="luxe-price-tag">
+              <span class="luxe-price-val">₹500</span>
+              <span class="luxe-price-unit">/ hr (Flat Fixed Rate)</span>
+            </div>
+            <button class="btn btn-luxe w-full" onclick="openDemoModal()">Book Innova Crysta</button>
+          </div>
+        </div>
+
+        <!-- LUXE Car 2: BYD eMAX 7 Electric SUV -->
+        <div class="luxe-card">
+          <span class="luxe-card-badge" style="border-color: #10b981; color: #10b981;">100% Electric SUV</span>
+          <div class="luxe-card-visual">
+            <img src="./assets/images/electric_suv.jpg" alt="BYD Electric Luxury SUV" class="luxe-car-photo">
+          </div>
+          <div class="luxe-card-content">
+            <h3 class="luxe-car-name">BYD eMAX 7 (EV)</h3>
+            <span class="luxe-car-category">Zero-Emission Luxury SUV</span>
+            <div class="luxe-specs-row">
+              <span>6 Seats</span>
+              <span>•</span>
+              <span>Silent Ride</span>
+              <span>•</span>
+              <span>Fast Charging</span>
+            </div>
+            <div class="luxe-price-tag">
+              <span class="luxe-price-val">₹550</span>
+              <span class="luxe-price-unit">/ hr (Flat Fixed Rate)</span>
+            </div>
+            <button class="btn btn-luxe w-full" onclick="openDemoModal()">Book BYD Electric</button>
+          </div>
+        </div>
+
+        <!-- LUXE Car 3: Toyota Hyryder Hybrid -->
+        <div class="luxe-card">
+          <span class="luxe-card-badge">Hybrid Executive</span>
+          <div class="luxe-card-visual">
+            <img src="./assets/images/hyryder.jpg" alt="Toyota Urban Hyryder Hybrid SUV" class="luxe-car-photo">
+          </div>
+          <div class="luxe-card-content">
+            <h3 class="luxe-car-name">Toyota Urban Hyryder</h3>
+            <span class="luxe-car-category">Premium Chauffeur Sedan/SUV</span>
+            <div class="luxe-specs-row">
+              <span>5 Seats</span>
+              <span>•</span>
+              <span>Hybrid Comfort</span>
+              <span>•</span>
+              <span>Airport Special</span>
+            </div>
+            <div class="luxe-price-tag">
+              <span class="luxe-price-val">₹480</span>
+              <span class="luxe-price-unit">/ hr (Flat Fixed Rate)</span>
+            </div>
+            <button class="btn btn-luxe w-full" onclick="openDemoModal()">Book Hyryder</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST METRICS & COMPLIANCE SECTION -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-val">1,200<span>+</span></div>
+          <div class="metric-label">Premium AC Executive Buses</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">150<span>+</span></div>
+          <div class="metric-label">Express Direct Routes</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">95<span>%</span></div>
+          <div class="metric-label">On-Time Arrival Record</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">ISO<span>27001</span></div>
+          <div class="metric-label">Information Security Certified</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUTER REVIEWS & TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <span class="section-eyebrow">Loved by Professionals</span>
+        <h2 class="heading-1" style="color: var(--color-primary);">What Commuters Say</h2>
+        <p class="text-muted" style="margin-top: 0.5rem; font-size: 1.1rem;">
+          Over 50,000 corporate leaders, developers, and consultants start their day with Mamta Travels.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Review 1 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">
+              "Commuting from Thane to BKC used to be a 2-hour nightmare in heavy traffic or crowded local trains. With Mamta Travels, I get a guaranteed seat, WiFi, and wake up refreshed right outside my office tower."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">RP</div>
+            <div class="user-meta">
+              <h4>Rohit Parikh</h4>
+              <p>Senior VP, HDFC Bank (BKC)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">
+              "The Atal Setu express route from Navi Mumbai to Worli has literally saved me 90 minutes every day. Clean buses, polite drivers, and the Flexi Pass makes it super economical."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">SM</div>
+            <div class="user-meta">
+              <h4>Sneha Mukherjee</h4>
+              <p>Product Lead, Deloitte (Worli)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">
+              "Our company switched from reimbursing cabs to Mamta Travels Corporate Passes. We cut our monthly transport overhead by 32% while employees gave it a 4.9/5 satisfaction score."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">AK</div>
+            <div class="user-meta">
+              <h4>Anand Kulkarni</h4>
+              <p>Head of People Operations, FinTech Unicorn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Download Banner CTA -->
+      <div class="download-cta-banner">
+        <div class="download-cta-content">
+          <h2 class="heading-2 download-cta-title">Ready for stress-free commute?</h2>
+          <p class="download-cta-desc">
+            Download the Mamta Travels app on iOS & Android. Sign up in 60 seconds and receive ₹200 bonus Mamta Cash immediately.
+          </p>
+          <div class="download-store-badges">
+            <button class="store-badge-btn" onclick="openDownloadModal()">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.85-.92.04-2.02.62-2.66 1.37-.56.65-1.06 1.71-0.93 2.74 1.03.08 2.06-.51 2.67-1.26z"/></svg>
+              <span>App Store</span>
+            </button>
+            <button class="store-badge-btn" onclick="openDownloadModal()">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.84L14.75 13 3.6 24.16c-.36-.36-.6-.88-.6-1.52V3.36c0-.64.24-1.16.6-1.52zM15.82 14.07l2.84 2.84-12.75 7.37 9.91-10.21zm2.84-4.14l-2.84 2.84L5.91 2.56l12.75 7.37zM19.74 10.5l2.4 1.38c.64.36.64.96 0 1.32l-2.4 1.38-2.28-2.04 2.28-2.04z"/></svg>
+              <span>Google Play</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Desktop QR Code Preview -->
+        <div style="background: #ffffff; padding: 1.25rem; border-radius: 20px; text-align: center; color: var(--color-primary); box-shadow: 0 12px 32px rgba(0,0,0,0.3);">
+          <div style="width: 140px; height: 140px; margin: 0 auto 0.75rem; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-3 2h2v3h-2v-3zm3 3h3v3h-3v-3zm-5-1h2v4h-2v-4zm5-4h3v2h-3v-2z"/></svg>
+          </div>
+          <span style="font-size: 0.8125rem; font-weight: 700; color: var(--color-primary);">Scan to Install App</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand & ISO -->
+        <div class="footer-brand-col">
+          <div class="nav-brand-text" style="font-size: 1.6rem;">
+            Mamta<span>Travels</span>
+          </div>
+          <p class="footer-desc">
+            India's leading app-based premium AC bus commute network. Reclaiming commute time for working professionals in Mumbai, Thane, Navi Mumbai, and Hyderabad.
+          </p>
+          <div class="iso-cert-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>ISO 27001:2022 Security Certified</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Routes -->
+        <div class="footer-nav-col">
+          <h4>Routes Network</h4>
+          <div class="footer-links-list">
+            <a href="#routes">Mumbai Express Routes</a>
+            <a href="#routes">Thane to BKC Direct</a>
+            <a href="#routes">Navi Mumbai to Worli</a>
+            <a href="#routes">Panvel via Atal Setu</a>
+            <a href="#routes">Borivali to Powai</a>
+            <a href="#routes">Hyderabad Hitec City</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div class="footer-nav-col">
+          <h4>Support & Help</h4>
+          <div class="footer-links-list">
+            <a href="javascript:void(0)" onclick="openDemoModal()">Contact Us</a>
+            <a href="tel:022-48900198">Hotline: 022-48900198</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="javascript:void(0)" onclick="openCookieModal()">Cookie Preferences</a>
+            <a href="javascript:void(0)" onclick="openDemoModal()">Customer Guidelines</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Corporate & Legal -->
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <div class="footer-links-list">
+            <a href="#corporate">Mamta Corporate Pass</a>
+            <a href="#luxe">Mamta LUXE Rentals</a>
+            <a href="javascript:void(0)" onclick="openDemoModal()">Careers at Mamta</a>
+            <a href="javascript:void(0)" onclick="openDemoModal()">Refunds & Cancellations</a>
+            <a href="javascript:void(0)" onclick="openDemoModal()">Terms & Conditions</a>
+            <a href="javascript:void(0)" onclick="openDemoModal()">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Mamta Travels Mobility Technologies Private Limited. All rights reserved.
+        </div>
+        <div class="social-links-row">
+          <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 0 0 0-3.18 1.59 1.59 0 0 0 0 3.18m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL 1: INTERACTIVE 2x2 SEAT SELECTION & BOARDING PASS GENERATOR
+       ========================================================================== -->
+  <div class="modal-overlay" id="seat-booking-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="close-seat-modal" aria-label="Close Modal">&times;</button>
+      
+      <div id="seat-booking-flow">
+        <div class="modal-header">
+          <span class="badge-gold">Seat Reservation</span>
+          <h3 class="modal-title" id="modal-route-name">Navi Mumbai - Worli Express</h3>
+          <p class="modal-subtitle">Pick your reserved AC seat. Guaranteed seat with zero standing.</p>
+        </div>
+
+        <div class="modal-body">
+          <!-- Legend -->
+          <div class="seat-legend">
+            <div class="legend-item">
+              <div class="legend-swatch available"></div>
+              <span>Available</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-swatch selected"></div>
+              <span>Your Choice</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-swatch booked"></div>
+              <span>Booked</span>
+            </div>
+          </div>
+
+          <!-- Bus Cabin 2x2 Layout -->
+          <div class="bus-cabin">
+            <div class="bus-front">
+              <div class="driver-wheel" title="Driver Cabin">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg>
+              </div>
+              <div class="bus-entry-door">Front Door [Entry]</div>
+            </div>
+
+            <!-- Seat rows generated dynamically via js/seat-booking.js -->
+            <div class="seat-rows-container" id="bus-seat-rows"></div>
+          </div>
+
+          <!-- Pricing & Flexi Pass Switch -->
+          <div class="booking-summary-card">
+            <div class="summary-row">
+              <span style="color: var(--text-muted);">Selected Seat:</span>
+              <strong style="color: var(--color-primary); font-size: 1.05rem;" id="modal-selected-seat">None Selected</strong>
+            </div>
+            <div class="summary-row">
+              <span style="color: var(--text-muted);">Standard Fare:</span>
+              <strong id="modal-base-fare">₹240</strong>
+            </div>
+
+            <!-- Flexi Pass Toggle -->
+            <div class="flexi-pass-toggle-wrap">
+              <div class="flexi-pass-toggle-label">
+                <strong>Apply Flexi Pass Pricing</strong>
+                <span>Unlock 34% discount + free rescheduling</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="toggle-flexi-pricing">
+                <span class="slider-switch"></span>
+              </label>
+            </div>
+
+            <div class="summary-row" style="border-top: 1px solid #cbd5e1; padding-top: 0.75rem; margin-top: 0.5rem;">
+              <span style="font-weight: 800; color: var(--color-primary);">Payable Total:</span>
+              <span style="font-weight: 800; font-size: 1.4rem; color: var(--color-primary);" id="modal-total-amount">₹0</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg w-full" id="btn-confirm-seat-booking" disabled style="opacity: 0.5;">
+            Confirm Reservation
+          </button>
+        </div>
+      </div>
+
+      <!-- Generated Boarding Pass Result (Shown upon confirmation) -->
+      <div class="boarding-pass-card" id="boarding-pass-result">
+        <div style="background: var(--color-primary); color: #fff; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem;">
+          <span class="badge-gold">Confirmed Ticket</span>
+          <h2 style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0;" id="pass-route-name">Navi Mumbai - Worli</h2>
+          <div style="display: flex; justify-content: space-around; margin-top: 1rem; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 0.75rem;">
+            <div>
+              <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7);">SEAT NO</div>
+              <div style="font-size: 1.35rem; font-weight: 800; color: var(--color-accent-light);" id="pass-seat-no">1B</div>
+            </div>
+            <div>
+              <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7);">PNR CODE</div>
+              <div style="font-size: 1.35rem; font-weight: 800;" id="pass-pnr">MT849201</div>
+            </div>
+            <div>
+              <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7);">AMOUNT</div>
+              <div style="font-size: 1.35rem; font-weight: 800;" id="pass-amount">₹159</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pass-qr-frame">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-3 2h2v3h-2v-3zm3 3h3v3h-3v-3zm-5-1h2v4h-2v-4zm5-4h3v2h-3v-2z"/></svg>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Show this QR code at front boarding entrance. Driver breathalyzer test verified 5 min before departure.
+        </p>
+
+        <button class="btn btn-gold btn-lg w-full" id="btn-download-ticket">Save Boarding Pass (PDF)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: CORPORATE DEMO LEAD GENERATION
+       ========================================================================== -->
+  <div class="modal-overlay" id="corporate-demo-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="close-demo-modal" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <span class="badge-gold">Enterprise Mobility</span>
+        <h3 class="modal-title">Request Corporate Commute Demo</h3>
+        <p class="modal-subtitle">Cut your company transport bill by 30%. Speak with our enterprise solutions specialist.</p>
+      </div>
+      <div class="modal-body">
+        <form id="corporate-demo-form">
+          <div class="form-group">
+            <label class="form-label" for="company-name">Company Name *</label>
+            <input type="text" id="company-name" class="form-input" placeholder="e.g. Acme Tech Solutions Pvt Ltd" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="work-email">Official Work Email *</label>
+            <input type="email" id="work-email" class="form-input" placeholder="name@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone-no">Contact Phone Number *</label>
+            <input type="tel" id="phone-no" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="commuters-count">Expected Daily Commuters *</label>
+            <select id="commuters-count" class="form-input">
+              <option value="10-50">10 to 50 employees</option>
+              <option value="50-200">50 to 200 employees</option>
+              <option value="200-500">200 to 500 employees</option>
+              <option value="500+">500+ employees (Enterprise Plan)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-full" style="margin-top: 1rem;">
+            Request Corporate Demo
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 3: DOWNLOAD APP QR & SMS LINK
+       ========================================================================== -->
+  <div class="modal-overlay" id="download-app-modal">
+    <div class="modal-card" style="max-width: 520px; text-align: center;">
+      <button class="modal-close-btn" id="close-download-modal" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <span class="badge-gold">Get ₹200 Mamta Cash</span>
+        <h3 class="modal-title">Get the Mamta Travels App</h3>
+        <p class="modal-subtitle">Download for iOS & Android to book reserved seats and live-track your bus.</p>
+      </div>
+      <div class="modal-body">
+        <div style="background: #f8fafc; border: 2px dashed #cbd5e1; width: 160px; height: 160px; border-radius: 16px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
+          <svg width="110" height="110" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-3 2h2v3h-2v-3zm3 3h3v3h-3v-3zm-5-1h2v4h-2v-4zm5-4h3v2h-3v-2z"/></svg>
+        </div>
+        <p style="font-weight: 700; color: var(--color-primary); margin-bottom: 1.5rem;">
+          Point your phone camera at this QR code to download
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="height: 1px; background: #e2e8f0; flex: 1;"></div>
+          <span style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 700;">OR RECEIVE SMS LINK</span>
+          <div style="height: 1px; background: #e2e8f0; flex: 1;"></div>
+        </div>
+
+        <form id="sms-link-form" style="display: flex; gap: 0.5rem;">
+          <input type="tel" id="sms-phone-input" class="form-input" placeholder="Enter 10-digit mobile number" style="margin-bottom: 0;">
+          <button type="submit" class="btn btn-primary" style="flex-shrink: 0;">Send Link</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 4: COOKIE PREFERENCES DIALOG
+       ========================================================================== -->
+  <div class="modal-overlay" id="cookie-preferences-modal">
+    <div class="modal-card" style="max-width: 540px;">
+      <button class="modal-close-btn" id="close-cookie-modal" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <h3 class="modal-title">Cookie Preferences</h3>
+        <p class="modal-subtitle">Manage how cookies & telemetry are utilized on Mamta Travels.</p>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9;">
+            <div>
+              <div style="font-weight: 700; color: var(--color-primary);">Essential Functionality</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Required for route search, seat locks, and session security.</div>
+            </div>
+            <span style="font-size: 0.8rem; font-weight: 800; color: #16a34a;">Always On</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9;">
+            <div>
+              <div style="font-weight: 700; color: var(--color-primary);">Performance & Analytics</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Helps us measure route demand, stop dwell times, and site speed.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 700; color: var(--color-primary);">Marketing & Promotional</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Enables personalised route notifications and commuter cash discounts.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn btn-primary w-full" id="btn-save-cookie-prefs" style="margin-top: 2rem;">
+          Save Cookie Preferences
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Element -->
+  <div class="toast-notice" id="global-toast">
+    <span class="toast-icon">✓</span>
+    <span id="toast-text">Notification message here</span>
+  </div>
+
+  <!-- Leaflet Maps Script Library -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Application Bootstrap Script -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

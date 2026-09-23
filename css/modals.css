@@ -1,0 +1,404 @@
+/* ==========================================================================
+   Mamta Travels - Interactive Modals (Seat Booking, Demo, Download QR)
+   ========================================================================== */
+
+/* Modal Backdrop */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(var(--color-primary-rgb), 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px -15px rgba(var(--color-primary-rgb), 0.45);
+  transform: translateY(20px) scale(0.97);
+  transition: all var(--transition-normal);
+  position: relative;
+  border: 1px solid rgba(0, 194, 203, 0.2);
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: #e2e8f0;
+  transform: scale(1.05);
+}
+
+.modal-header {
+  padding: 1.75rem 2rem 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.modal-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.modal-body {
+  padding: 1.75rem 2rem;
+}
+
+/* ==========================================================================
+   Seat Booking Matrix Components
+   ========================================================================== */
+
+.seat-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-full);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-swatch.available {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+}
+
+.legend-swatch.selected {
+  background: var(--color-accent);
+  border: 1.5px solid var(--color-accent-hover);
+}
+
+.legend-swatch.booked {
+  background: #e2e8f0;
+  opacity: 0.6;
+}
+
+/* Bus Cabin Container */
+.bus-cabin {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto 2rem;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 36px 36px 16px 16px;
+  padding: 1.5rem 1.25rem;
+  position: relative;
+}
+
+/* Driver Area */
+.bus-front {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px dashed #cbd5e1;
+}
+
+.driver-wheel {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.bus-entry-door {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+/* 2x2 Seating Grid with Aisle */
+.seat-rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.seat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 28px 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.seat-aisle {
+  text-align: center;
+  font-size: 0.6875rem;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.bus-seat {
+  aspect-ratio: 1;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.bus-seat:hover:not(.booked) {
+  border-color: var(--color-accent);
+  transform: scale(1.08);
+}
+
+.bus-seat.selected {
+  background: var(--color-accent);
+  border-color: var(--color-accent-hover);
+  color: #04101e;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 194, 203, 0.5);
+}
+
+.bus-seat.booked {
+  background: #e2e8f0;
+  color: #94a3b8;
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+/* Booking Summary Box */
+.booking-summary-card {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  font-size: 0.9375rem;
+}
+
+.flexi-pass-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  margin: 1rem 0;
+}
+
+.flexi-pass-toggle-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexi-pass-toggle-label strong {
+  color: #15803d;
+  font-size: 0.9375rem;
+}
+
+.flexi-pass-toggle-label span {
+  font-size: 0.75rem;
+  color: #166534;
+}
+
+/* Switch Toggle Component */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-switch {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #cbd5e1;
+  transition: 0.2s;
+  border-radius: 24px;
+}
+
+.slider-switch:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider-switch {
+  background-color: #16a34a;
+}
+
+input:checked + .slider-switch:before {
+  transform: translateX(20px);
+}
+
+/* Confirmation Boarding Pass Ticket View */
+.boarding-pass-card {
+  display: none;
+  background: #ffffff;
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  text-align: center;
+}
+
+.boarding-pass-card.active {
+  display: block;
+}
+
+.pass-qr-frame {
+  width: 140px;
+  height: 140px;
+  margin: 1.5rem auto;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Form Styles for Lead Modal & Download Modal */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 194, 203, 0.2);
+}
+
+/* Toast Notifications */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(var(--color-primary-rgb), 0.35);
+  border: 1px solid rgba(0, 194, 203, 0.3);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 300;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all var(--transition-normal);
+}
+
+.toast-notice.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  color: var(--color-accent);
+}
